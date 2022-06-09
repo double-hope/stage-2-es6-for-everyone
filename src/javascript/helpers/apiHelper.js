@@ -1,7 +1,7 @@
 import { fightersDetails, fighters } from './mockData';
 
 const BASE_API_URL =
-  'https://api.github.com/repos/binary-studio-academy/stage-2-es6-for-everyone/contents/resources/api/';
+  'https://api.github.com/repos/double-hope/stage-2-es6-for-everyone/contents/resources/api/';
 const SECURITY_HEADERS = {
   headers: {
     /*
