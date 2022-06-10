@@ -18,11 +18,15 @@ export function createFightersSelector() {
   };
 }
 
-// const fighterDetailsMap = new Map();
+const fighterDetailsMap = new Map();
 
 export async function getFighterInfo(fighterId) {
-  const info = await fighterService.getFighterDetails(fighterId);
-  return info;
+  const fighter = await fighterService.getFighterDetails(fighterId);
+  const { _id } = fighter;
+  if(!fighterDetailsMap.has(_id)){
+    fighterDetailsMap.set(_id, fighter);
+  }
+  return fighter;
 }
 
 function renderSelectedFighters(selectedFighters) {
