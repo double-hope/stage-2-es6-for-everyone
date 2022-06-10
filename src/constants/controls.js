@@ -4,5 +4,6 @@ export const controls = {
   PlayerTwoAttack: 'KeyJ',
   PlayerTwoBlock: 'KeyL',
   PlayerOneCriticalHitCombination: ['KeyQ', 'KeyW', 'KeyE'],
-  PlayerTwoCriticalHitCombination: ['KeyU', 'KeyI', 'KeyO']
+  PlayerTwoCriticalHitCombination: ['KeyU', 'KeyI', 'KeyO'],
+  arrChars: []
 }

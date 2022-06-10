@@ -15,7 +15,7 @@ function createModal({ title, bodyElement, onClose }) {
   const layer = createElement({ tagName: 'div', className: 'modal-layer' });
   const modalContainer = createElement({ tagName: 'div', className: 'modal-root' });
   const header = createHeader(title, onClose);
-
+  console.log(title);
   modalContainer.append(header, bodyElement);
   layer.append(modalContainer);
 
@@ -33,6 +33,7 @@ function createHeader(title, onClose) {
   const close = () => {
     hideModal();
     onClose();
+    location.reload();
   }
   closeButton.addEventListener('click', close);
   headerElement.append(titleElement, closeButton);

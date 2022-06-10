@@ -1,3 +1,11 @@
+import {showModal} from './modal';
+
 export function showWinnerModal(fighter) {
-  // call showModal function 
+
+  const modal = {
+    title: 'Win!',
+    bodyElement: fighter.name
+  }
+  showModal(modal);
+
 }
