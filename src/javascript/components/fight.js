@@ -2,7 +2,6 @@ import { controls } from '../../constants/controls';
 
 export async function fight(firstFighter, secondFighter) {
 
-  let damage;
   let winner;
 
   let healthFirst  = firstFighter.health;
@@ -94,9 +93,10 @@ export async function fight(firstFighter, secondFighter) {
 }
 
 export function getDamage(attacker, defender, blocked, coefficient) {
-  const hit = getHitPower(attacker, coefficient);
+  const { attack } = attacker;
+  const hit = getHitPower(attack * coefficient);
   let block;
-  if(blocked)
+  if(blocked || coefficient === 1)
     block = getBlockPower(defender);
   else
     block = 0;
@@ -106,18 +106,15 @@ export function getDamage(attacker, defender, blocked, coefficient) {
   return damage;
 }
 
-export function getHitPower(fighter, coefficient) {
+export function getHitPower(fighter) {
   const criticalHitChance = Math.random() * 2 + 1;
-  const { attack } = fighter;
-  const power = attack * coefficient * criticalHitChance;
-  return power;
+  return fighter * criticalHitChance;
 }
 
 export function getBlockPower(fighter) {
   const dodgeChance = Math.random() * 2 + 1;
   const { defense } = fighter;
-  const power = defense * dodgeChance;
-  return power;
+  return defense * dodgeChance;
 }
 
 function ChangeIndicator(firstFighter, secondFighter, firstIndicator, secondIndicator, healthFirst, healthSecond, winner){

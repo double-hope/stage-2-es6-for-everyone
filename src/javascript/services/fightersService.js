@@ -13,9 +13,13 @@ class FighterService {
   }
 
   async getFighterDetails(id) {
-    const endpoint = `details/fighter/${id}.json`;
-    const info = require(`../../../resources/api/${endpoint}`)
-    return info;
+    try{
+      const endpoint = `details/fighter/${id}.json`;
+      const info = require(`../../../resources/api/${endpoint}`)
+      return info;
+    }catch (error){
+      console.warn(error);
+    }
   }
 }
 
